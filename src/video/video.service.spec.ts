@@ -1,56 +1,56 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { MusicService } from '../../src/music/music.service';
-import { MusicDto } from '../../src/dto';
+import { VideoService } from './video.service';
+import { VideoDto } from '../dto';
 
-describe('MusicService', () => {
-  let service: MusicService;
+describe('VideoService', () => {
+  let service: VideoService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        MusicService,
+        VideoService,
       ],
     }).compile();
 
-    service = module.get<MusicService>(MusicService);
+    service = module.get<VideoService>(VideoService);
   });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
 
-  it('should return all musics', () => {
+  it('should return all videos', () => {
     expect(service.findAll().length).toBe(3);
   });
 
-  it('should return a music', () => {
-    expect(service.findById('1').singer).toBe('Lady Gaga');
+  it('should return a video', () => {
+    expect(service.findById('1').realisateur).toBe('Lady Gaga');
   });
 
   describe('actions', () => {
 
-    it('should create a music', () => {
+    it('should create a video', () => {
       // Given
 
       // When
-      service.create(<MusicDto>{ singer: 'Lady Gaga', title: 'Chromatica', platform: ['Apple music', 'Spotify']});
+      service.create(<VideoDto>{ realisateur: 'Lady Gaga', title: 'Chromatica', platform: ['Apple video', 'Spotify']});
 
       // Then
       expect(service.findAll().length).toBe(4);
       expect(service.findById('4').title).toBe('Chromatica');
     });
 
-    it('should update a music', () => {
+    it('should update a video', () => {
       // Given
 
       // When
-      service.update('1', <MusicDto>{ id: 1, singer: 'Lady Gaga', title: 'Chromatica', platform: ['Deezer', 'Spotify', 'Apple music', 'Youtube']});
+      service.update('1', <VideoDto>{ id: 1, realisateur: 'Lady Gaga', title: 'Chromatica', platform: ['Deezer', 'Spotify', 'Apple video', 'Youtube']});
 
       // Then
       expect(service.findById('1').title).toBe('Chromatica');
     });
 
-    it('should delete a music', () => {
+    it('should delete a video', () => {
       // Given
 
       // When

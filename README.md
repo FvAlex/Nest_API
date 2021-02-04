@@ -42,3 +42,29 @@ $ yarn test:cov
 ## License
 
 Nest is an [MIT licensed](LICENSE) open source project. 
+
+$ yarn start
+
+# watch mode
+$ yarn start:dev
+
+# production mode
+$ yarn start:prod
+```
+
+## Test
+
+```bash
+# unit tests
+$ yarn test
+
+# e2e tests
+$ yarn test:e2e
+
+# test coverage
+$ yarn test:cov
+```
+
+## License
+
+Nest is an [MIT licensed](LICENSE) open source project. 
